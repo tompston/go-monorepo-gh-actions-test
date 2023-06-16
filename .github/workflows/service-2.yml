@@ -1,11 +1,11 @@
-name: Run Service 1 On change in internal/first_service dir
+name: Run Service 2 On change in internal/second_service dir
 
 on: 
   push:
     branches:
       - main  
     paths:
-      - 'internal/first_service/**'
+      - 'internal/second_service/**'
 
 jobs:
   Build:
@@ -24,4 +24,4 @@ jobs:
         run: |
           go mod download
           go mod tidy
-          go run cmd/first_service/main.go 
+          go run cmd/second_service/main.go 
