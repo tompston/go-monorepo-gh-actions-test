@@ -24,6 +24,8 @@ jobs:
         run: |
           # go build -o main ./cmd/first_service/main.go
           # go build -o main cmd/first_service/main.go
+          go mod download
+          go mod tidy
           go run cmd/first_service/main.go 
           # ls -la
           # ./main
