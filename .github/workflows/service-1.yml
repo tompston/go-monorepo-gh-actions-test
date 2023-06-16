@@ -1,0 +1,27 @@
+name: Run Service 1 On change in internal/first_service dir
+
+on: 
+  push:
+    branches:
+      - main  
+    paths:
+      - 'internal/first_service/**'
+
+jobs:
+  Build:
+    runs-on: ubuntu-22.04
+    steps:
+      - name: Install checkout
+        uses: actions/checkout@v3
+
+      - name: Install go
+        uses: actions/setup-go@v3
+        with:
+          go-version: 1.20
+
+      - name: Build and run golang app
+        working-directory: ./
+        run: |
+          go build -o main cmd/first_service/main.go
+          ./main
+
